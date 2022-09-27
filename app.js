@@ -70,35 +70,18 @@ submit.addEventListener("click", function (e) {
   }
 });
 
-// const request = new Request(
-//   "https://guarded-taiga-80079.herokuapp.com/https://frontend-take-home.fetchrewards.com/form",
-//   {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//   }
-// );
-
-// request.json().then((data) => console.log(data));
-
 getFormElements();
 
-let xhr = new XMLHttpRequest();
-xhr.open("POST", "https://reqbin.com/echo/post/json");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Content-Type", "application/json");
+let post = new XMLHttpRequest();
+post.open("POST", "https://reqbin.com/echo/post/json");
+post.setRequestHeader("Accept", "application/json");
+post.setRequestHeader("Content-Type", "application/json");
 
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    console.log(xhr.status);
-    console.log(xhr.responseText);
+post.onreadystatechange = function () {
+  if (post.readyState === 4) {
+    console.log(post.status);
+    console.log(post.responseText);
   }
 };
 
-let datas = `{
-  "Id": 78912,
-  "Customer": "Jason Sweet",
-  "Quantity": 1,
-  "Price": 18.00
-}`;
-
-xhr.send(data);
+post.send(data);
